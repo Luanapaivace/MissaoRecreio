@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://mj7vw6cglv7v"]
+
+[ext_resource type="PackedScene" uid="uid://vxouo3igihol" path="res://cenas/sala_de_aula.tscn" id="1_26rn1"]
+[ext_resource type="PackedScene" uid="uid://c4wb28vgiprjt" path="res://cenas/player.tscn" id="2_6vmbs"]
+[ext_resource type="PackedScene" uid="uid://bxjivhavxv64b" path="res://cenas/aluna_material_derrubado.tscn" id="3_y1crn"]
+[ext_resource type="Script" path="res://script/aluna_material_derrubado.gd" id="4_mlqfc"]
+[ext_resource type="Texture2D" uid="uid://bsncjgsc7k4si" path="res://assets/Alunos/retrato.png" id="4_utfii"]
+[ext_resource type="Texture2D" uid="uid://ddkfd5chdnuop" path="res://assets/Alunos/derrubou.png" id="6_2at4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfgm8"]
+size = Vector2(17, 24)
+
+[node name="node_sala_de_aula" type="Node2D"]
+
+[node name="TileMapLayer_piso" parent="." instance=ExtResource("1_26rn1")]
+
+[node name="player" parent="." instance=ExtResource("2_6vmbs")]
+position = Vector2(12, 142)
+
+[node name="porta_saida_node_sala_de_aula" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="porta_saida_node_sala_de_aula"]
+position = Vector2(38.5, 209)
+shape = SubResource("RectangleShape2D_yfgm8")
+
+[node name="aluna_material_derrubado" parent="." instance=ExtResource("3_y1crn")]
+position = Vector2(77, 50)
+scale = Vector2(1.46552, 1.5)
+script = ExtResource("4_mlqfc")
+
+[node name="CanvasLayer_AlunaMaterial" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer_AlunaMaterial"]
+offset_left = 66.6435
+offset_top = 153.999
+offset_right = 268.643
+offset_bottom = 197.999
+color = Color(0.392157, 0.439216, 0.427451, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer_AlunaMaterial"]
+offset_left = 68.6435
+offset_top = 143.999
+offset_right = 117.644
+offset_bottom = 157.999
+color = Color(0.196078, 0.235294, 0.223529, 1)
+
+[node name="retrato_fala" type="Sprite2D" parent="CanvasLayer_AlunaMaterial"]
+position = Vector2(42, 171)
+texture = ExtResource("4_utfii")
+
+[node name="alunaMaterial_retrato" type="Sprite2D" parent="CanvasLayer_AlunaMaterial"]
+position = Vector2(42, 170.25)
+scale = Vector2(0.0436254, 0.0424805)
+texture = ExtResource("6_2at4k")
+
+[node name="label_nome_AlunaMaterial" type="Label" parent="CanvasLayer_AlunaMaterial"]
+offset_left = 78.0
+offset_top = 144.0
+offset_right = 120.0
+offset_bottom = 157.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+text = "Juliana"
+
+[node name="label_fala_alunaMateriall" type="Label" parent="CanvasLayer_AlunaMaterial"]
+offset_left = 78.0
+offset_top = 162.0
+offset_right = 118.0
+offset_bottom = 185.0
+theme_override_font_sizes/font_size = 6
+text = "Ah não... Deixei tudo cair de novo. Preciso ser mais 
+cuidadosa com as minhas coisas..."
+
+[connection signal="body_entered" from="porta_saida_node_sala_de_aula" to="player" method="_on_porta_saida_node_sala_de_aula_body_entered"]
+[connection signal="body_entered" from="aluna_material_derrubado" to="aluna_material_derrubado" method="_on_body_entered"]
+[connection signal="body_exited" from="aluna_material_derrubado" to="aluna_material_derrubado" method="_on_body_exited"]

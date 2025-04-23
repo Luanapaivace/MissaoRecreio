@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b662px2ghelrw"]
+
+[ext_resource type="PackedScene" uid="uid://d1li5h6xvgb6s" path="res://cenas/corredor.tscn" id="1_gaxip"]
+
+[node name="principal" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(176, 116)
+position_smoothing_enabled = true
+
+[node name="Corredor" parent="." instance=ExtResource("1_gaxip")]
+
+[editable path="Corredor"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxjivhavxv64b"]
+
+[ext_resource type="Texture2D" uid="uid://ddkfd5chdnuop" path="res://assets/Alunos/derrubou.png" id="1_hiof7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04tqb"]
+atlas = ExtResource("1_hiof7")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7hpim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04tqb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a585f"]
+size = Vector2(54, 39)
+
+[node name="aluna_material_derrubado" type="Area2D"]
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -1.0625)
+scale = Vector2(0.0253906, 0.0216064)
+sprite_frames = SubResource("SpriteFrames_7hpim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_a585f")

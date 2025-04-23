@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpbqcq6rwgcrk"]
+
+[ext_resource type="Texture2D" uid="uid://c3seyixfvti7q" path="res://assets/Alunos/1000208172 (719×1347)(1).png" id="1_clxw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltvif"]
+atlas = ExtResource("1_clxw4")
+region = Rect2(638, 419, 29, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15dsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltvif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bypm"]
+size = Vector2(88.5, 54.25)
+
+[node name="Coordenadora" type="Area2D"]
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_15dsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 8)
+shape = SubResource("RectangleShape2D_3bypm")

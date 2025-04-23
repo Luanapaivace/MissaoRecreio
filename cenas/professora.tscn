@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl4ik1aixnysd"]
+
+[ext_resource type="Texture2D" uid="uid://c3seyixfvti7q" path="res://assets/Alunos/1000208172 (719×1347)(1).png" id="1_ka2tt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6bos"]
+atlas = ExtResource("1_ka2tt")
+region = Rect2(260, 544, 26, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y82up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6bos")
+}],
+"loop": true,
+"name": &"prof",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqhwo"]
+size = Vector2(123, 72)
+
+[node name="professora" type="Area2D"]
+monitorable = false
+
+[node name="profe" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y82up")
+animation = &"prof"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_gqhwo")

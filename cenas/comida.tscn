@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1bfobvt1jp14"]
+
+[ext_resource type="Texture2D" uid="uid://ce5qy7ahm6rq1" path="res://assets/comida/cookie.png" id="1_dfkc1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ww7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dfkc1")
+}],
+"loop": true,
+"name": &"cookie",
+"speed": 5.0
+}]
+
+[node name="comida" type="Area2D"]
+
+[node name="cookie" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8ww7s")
+animation = &"cookie"

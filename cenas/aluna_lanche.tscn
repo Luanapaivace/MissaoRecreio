@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4l8asajr41qp"]
+
+[ext_resource type="Texture2D" uid="uid://c3seyixfvti7q" path="res://assets/Alunos/1000208172 (719×1347)(1).png" id="1_hg2ed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydbdd"]
+atlas = ExtResource("1_hg2ed")
+region = Rect2(638, 516, 29, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbued"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydbdd")
+}],
+"loop": true,
+"name": &"aluna",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fhqs"]
+size = Vector2(88.5, 58.75)
+
+[node name="aluna_lanche" type="Area2D"]
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hbued")
+animation = &"aluna"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, -3.625)
+shape = SubResource("RectangleShape2D_7fhqs")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfjc43iwkad70"]
+
+[ext_resource type="Texture2D" uid="uid://ld7dsqcgpncf" path="res://assets/Alunos/triste.png" id="1_8glx5"]
+[ext_resource type="Texture2D" uid="uid://cixh6wtqtuxyk" path="res://assets/Alunos/feliz.png" id="2_ij3uu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhqlg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8glx5")
+}],
+"loop": true,
+"name": &"chorando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ij3uu")
+}],
+"loop": true,
+"name": &"feliz",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6e1f"]
+size = Vector2(87.25, 56.375)
+
+[node name="colegaTriste" type="Area2D"]
+monitorable = false
+
+[node name="colegatriste" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 1.43051e-06)
+scale = Vector2(0.0563726, 0.0482027)
+sprite_frames = SubResource("SpriteFrames_mhqlg")
+animation = &"feliz"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_i6e1f")
